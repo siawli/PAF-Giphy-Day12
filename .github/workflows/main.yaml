@@ -10,10 +10,10 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '17'
+        distribution: 'temurin'
     - name: Set up Maven
       uses: stCarolas/setup-maven@v3.8.4
       with:
         maven-version: '3.8.4'
     - name: Run test
       run: mvn run verify
-      
