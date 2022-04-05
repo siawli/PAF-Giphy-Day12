@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <form method="get" th:action="@{/search}">
+        <!-- Phrase: <input type="text" th:name="phrase"/> -->
+        <h1>Search Giphy</h1>
+        <div class="row">
+            <div class="form-group col-lg-5">
+                <label for="exampleFormControlInput1" class="form-label">Phrase</label>
+                <input type="text" class="form-control" th:name="phrase" width="100%" required>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <p>Limit</p>
+            <div class="col-sm-2">
+                <select th:name="limit" class="form-select form-select-sm" aria-label=".form-select-sm example" data-width="20%">
+                    <!-- <option th:value="10"></option> -->
+                    <option th:value="5">5</option>
+                    <option th:value="10" selected>10</option>
+                    <option th:value="15">15</option>
+                    <option th:value="20">20</option>
+                </select>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <p>Rating</p>
+            <div class="col-sm-2">
+                <select th:name="rating" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <!-- <option th:value="PG"></option> -->
+                    <option th:value="g">g</option>
+                    <option th:value="pg" selected>pg</option>
+                    <option th:value="pg-13">pg-13</option>
+                    <option th:value="r">r</option>
+                </select>
+            </div>
+        </div>
+
+        <input type="submit" value="Submit!"/>
+        <!-- <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary">Submit!</button>
+          </div> -->
+
+    </form>
+</body>
+</html>
