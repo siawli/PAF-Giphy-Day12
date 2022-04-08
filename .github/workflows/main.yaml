@@ -32,7 +32,3 @@ jobs:
         space_region: sgp1
         source: target/site/jacoco
         out_dir: coverage/${{ github.event.repository.name }}
-        permission: public-read
-    - name: Upload coverage report
-      uses: BetaHuhn/do-spaces-action@v2
-      with:
