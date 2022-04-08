@@ -30,10 +30,9 @@ jobs:
         secret_key: ${{ secrets.pafsiawlisecret }}
         space_name: paf-siawli
         space_region: sgp1
-        source: .github/badges/jacoco.svg
+        source: target/site/jacoco
         out_dir: coverage/${{ github.event.repository.name }}
         permission: public-read
     - name: Upload coverage report
       uses: BetaHuhn/do-spaces-action@v2
       with:
-        
