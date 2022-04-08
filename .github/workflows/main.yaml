@@ -16,6 +16,24 @@ jobs:
     - name: Set up Maven
       uses: stCarolas/setup-maven@v4.3
       with:
-        maven-version: 3.8.4
+        maven-version: '3.8.4'
     - name: Run test
       run: mvn clean verify
+    - name: Generate coverge badge
+      uses: cicirello/jacoco-badge-generator@v2
+      with:
+        generate-coverage-badge: true
+    - name: Upload coverage badge to DigitalOcean spaces
+      uses: BetaHuhn/do-spaces-action@v2
+      with:
+        access_key: ${{ secrets.pafsiawliaccess }}
+        secret_key: ${{ secrets.pafsiawlisecret }}
+        space_name: paf-siawli
+        space_region: sgp1
+        source: .github/badges/jacoco.svg
+        out_dir: coverage/${{ github.event.repository.name }}
+        permission: public-read
+    - name: Upload coverage report
+      uses: BetaHuhn/do-spaces-action@v2
+      with:
+        
